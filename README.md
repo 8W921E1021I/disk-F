@@ -1,1 +1,4 @@
 # disk-F
+the name of the script is "test_system.py". the other files are data source. when you run the code, you could just run the test_system.py.
+I am trying to set up a multi-agent system. this system contains over 20 agents and each agent has 13 bahaviours. most of them are cycle behaviours. the problem is: after I start all of the agent for a while, some of the behaviours in some agents will stop running. I have checked the code and there is no error. after all the 28 agents runs for a while, for example, 5 minutes, the Receive behaviour stops in some agents after the code runs the tearDown(), I made an array to record the variation of self.e1 in the Receive behaviour every 0.4 seconds. it shows like bellow:[0, 1, 2, 3, ......, 34,34, 34,.....34]  it means the cycle behaviour stops after self.e1 = 34. 
+I don't know why this happens and how to solve problem like this . could anyone help me with this? thanks.
