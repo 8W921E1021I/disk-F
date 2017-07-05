@@ -931,9 +931,7 @@ class line(spade.Agent.Agent):
 
 
 if __name__ == "__main__":
-
-
-
+    addr = os.path.split(os.path.realpath(__file__))[0]
     num_MG = 13
     A = {"version": 1}
     B = {"version": 1}
@@ -948,7 +946,7 @@ if __name__ == "__main__":
 
     network_ary = np.zeros([num_MG, num_MG])
     # import the network structure
-    network = pd.read_csv('E:\parameter_test13\con_structure.csv')
+    network = pd.read_csv(join(addr,'con_structure.csv'))
     for i in range(num_MG):
         for j in range(num_MG):            
             if network["mg" + str(i+1)][j] != 0 and (i+1) <= j:
@@ -973,7 +971,7 @@ if __name__ == "__main__":
     a3 = A["2"]
     a4 = A["3"]
     a5 = A["4"]
-    weat = pd.read_csv('E:\parameter_test5\weather1.csv')
+    weat = pd.read_csv(join(addr,'time1.csv'))
     td1 = weat['dateTime']
     timerow2 = pd.to_datetime(td1, unit='s')
     timerow = np.array(timerow2[:-1], dtype=np.datetime64)    
@@ -986,7 +984,7 @@ if __name__ == "__main__":
     m5 = np.array(a5.e1[:n])
 
     t = np.array(timerow[:n])
-    #print "66666666666666666666666666666666666666666666666666666666666666666666666666666666: %r %r" %(t, m2)
+    
 
 
     fig = plt.figure(figsize=(10,10)) 
@@ -1013,5 +1011,3 @@ if __name__ == "__main__":
     plt.ylabel('power: /w')
     plt.legend(plot1+plot2+plot3+plot4,('12_1','12_2','27_2','27_1'),'best',numpoints=1)
     plt.show()
-
-
